@@ -1,35 +1,44 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+// components
+import ImpactIndexTable from "./components/table/ImpactIndexTable";
+import SelectedIndicatorTable from "./components/table/SelectedIndicatorTable";
+import TransactionSymbolTable from "./components/table/TransactionSymbolTable";
 
-function App() {
-  const [count, setCount] = useState(0)
-
+export default function App() {
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="App">
+      <SelectedIndicatorTable
+        items={[
+          { id: 1, name: "Cheese", price: 4.9, stock: 20 },
+          { id: 2, name: "Milk", price: 1.9, stock: 32 },
+          { id: 3, name: "Yoghurt", price: 2.4, stock: 12 },
+          { id: 4, name: "Heavy Cream", price: 3.9, stock: 9 },
+          { id: 5, name: "Butter", price: 0.9, stock: 99 },
+          { id: 6, name: "Sour Cream ", price: 2.9, stock: 86 },
+          { id: 7, name: "Fancy French Cheese 🇫🇷", price: 99, stock: 12 },
+        ]}
+      />
+      <TransactionSymbolTable
+        items={[
+          { id: 1, name: "Cheese", price: 4.9, stock: 20 },
+          { id: 2, name: "Milk", price: 1.9, stock: 32 },
+          { id: 3, name: "Yoghurt", price: 2.4, stock: 12 },
+          { id: 4, name: "Heavy Cream", price: 3.9, stock: 9 },
+          { id: 5, name: "Butter", price: 0.9, stock: 99 },
+          { id: 6, name: "Sour Cream ", price: 2.9, stock: 86 },
+          { id: 7, name: "Fancy French Cheese 🇫🇷", price: 99, stock: 12 },
+        ]}
+      />
+      <ImpactIndexTable
+        items={[
+          { id: 1, name: "Cheese", price: 4.9, stock: 20 },
+          { id: 2, name: "Milk", price: 1.9, stock: 32 },
+          { id: 3, name: "Yoghurt", price: 2.4, stock: 12 },
+          { id: 4, name: "Heavy Cream", price: 3.9, stock: 9 },
+          { id: 5, name: "Butter", price: 0.9, stock: 99 },
+          { id: 6, name: "Sour Cream ", price: 2.9, stock: 86 },
+          { id: 7, name: "Fancy French Cheese 🇫🇷", price: 99, stock: 12 },
+        ]}
+      />
+    </div>
+  );
 }
-
-export default App

@@ -10,7 +10,7 @@ export const useSortableData = (items, config = null) => {
     // Filter based on search query
     if (searchQuery) {
       sortableItems = sortableItems.filter((item) =>
-        item.name.toLowerCase().includes(searchQuery.toLowerCase())
+        item.name.includes(searchQuery)
       );
     }
 

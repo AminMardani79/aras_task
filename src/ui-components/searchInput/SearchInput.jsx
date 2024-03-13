@@ -8,7 +8,7 @@ function SearchInput({ searchQuery, handleSearchChange }) {
       type="text"
       value={searchQuery}
       onChange={handleSearchChange}
-      placeholder="Search by name..."
+      placeholder="جستجو ..."
     />
   );
 }

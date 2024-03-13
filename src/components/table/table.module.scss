@@ -1,0 +1,40 @@
+@import "../../assets/scss/colors.scss";
+
+.table{
+  width: 100%;
+  min-height: 250px;
+}
+
+.tableHead {
+  background-color: $main-gray;
+  th {
+    text-align: right;
+    padding: 5px;
+  }
+  button {
+    background-color: inherit;
+    border: none;
+    outline: none;
+    text-align: right;
+    color: $dark-gray;
+    font-weight: 700;
+    font-size: 0.8rem;
+  }
+}
+
+.tableBody{
+  background-color: $body-background;
+  td{
+    padding: 5px;
+    font-size: .75rem;
+    font-weight: 500;
+    color: $table-body-color;
+  }
+}
+
+.tableCaption{
+  text-align: right;
+  font-weight: 700;
+  color: $caption-color;
+  padding: 8px 0;
+}

@@ -1,0 +1,16 @@
+.input {
+  width: 100%;
+  border: 1px solid rgb(214, 214, 214);
+  padding: 10px;
+  border-radius: 20px;
+  &:focus {
+    border-color: rgb(161, 161, 161) !important;
+    outline: none;
+  }
+  &::placeholder {
+    font-family: IranYekan, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+      "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+      sans-serif;
+    font-family: 700;
+  }
+}

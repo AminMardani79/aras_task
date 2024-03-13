@@ -1,25 +1,35 @@
 import PropTypes from "prop-types";
 import { useSortableData } from "../../hooks/useSortableData";
 import SearchInput from "../../ui-components/searchInput/SearchInput";
+import Checkbox from "../../ui-components/checkbox/Checkbox";
+
+import styles from "./table.module.scss";
+import { useCheckbox } from "../../hooks/useCheckbox";
+import { formatter } from "../../helper/functions";
 
 function SelectedIndicatorTable({ items: tableItems }) {
   const { items, requestSort, sortConfig, searchQuery, handleSearchChange } =
     useSortableData(tableItems);
+  const { checked, handleChange } = useCheckbox();
   const getClassNamesFor = (name) => {
     if (!sortConfig) {
       return;
     }
     return sortConfig.key === name ? sortConfig.direction : undefined;
   };
+
   return (
     <div>
       <SearchInput
         searchQuery={searchQuery}
         handleSearchChange={handleSearchChange}
       />
-      <table>
-        <caption>شاخص های منتخب</caption>
-        <thead>
+      <table className={styles.table}>
+        <caption className={styles.tableCaption}>
+          <span>شاخص های منتخب </span>
+          <Checkbox onChange={handleChange} />
+        </caption>
+        <thead className={styles.tableHead}>
           <tr>
             <th>
               <button
@@ -27,38 +37,80 @@ function SelectedIndicatorTable({ items: tableItems }) {
                 onClick={() => requestSort("name")}
                 className={getClassNamesFor("name")}
               >
-                Name
+                شاخص
               </button>
             </th>
             <th>
               <button
                 type="button"
-                onClick={() => requestSort("price")}
-                className={getClassNamesFor("price")}
+                onClick={() => requestSort("time")}
+                className={getClassNamesFor("time")}
               >
-                Price
+                زمان انتشار
               </button>
             </th>
             <th>
               <button
                 type="button"
-                onClick={() => requestSort("stock")}
-                className={getClassNamesFor("stock")}
+                onClick={() => requestSort("count")}
+                className={getClassNamesFor("count")}
               >
-                In Stock
+                مقدار
+              </button>
+            </th>
+            <th>
+              <button
+                type="button"
+                onClick={() => requestSort("change")}
+                className={getClassNamesFor("change")}
+              >
+                تغییر
+              </button>
+            </th>
+            <th>
+              <button
+                type="button"
+                onClick={() => requestSort("percent")}
+                className={getClassNamesFor("percent")}
+              >
+                درصد
+              </button>
+            </th>
+            <th>
+              <button
+                type="button"
+                onClick={() => requestSort("min")}
+                className={getClassNamesFor("min")}
+              >
+                کمترین
+              </button>
+            </th>
+            <th>
+              <button
+                type="button"
+                onClick={() => requestSort("max")}
+                className={getClassNamesFor("max")}
+              >
+                بیشترین
               </button>
             </th>
           </tr>
         </thead>
-        <tbody>
-          {items.map((item) => (
-            <tr key={item.id}>
-              <td>{item.name}</td>
-              <td>${item.price}</td>
-              <td>{item.stock}</td>
-            </tr>
-          ))}
-        </tbody>
+        {checked && (
+          <tbody className={styles.tableBody}>
+            {items.map((item) => (
+              <tr key={item.id}>
+                <td>{item.name}</td>
+                <td>{item.time}</td>
+                <td>{item.count}</td>
+                <td>{item.change}</td>
+                <td>{item.percent}</td>
+                <td>{formatter(item.min, 1)}</td>
+                <td>{formatter(item.max, 0)}</td>
+              </tr>
+            ))}
+          </tbody>
+        )}
       </table>
     </div>
   );

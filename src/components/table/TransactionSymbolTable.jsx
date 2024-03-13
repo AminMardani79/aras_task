@@ -9,7 +9,7 @@ function TransactionSymbolTable({ sortConfig, requestSort, items }) {
   };
   return (
     <table>
-      <caption>Products</caption>
+      <caption>نماد های پرتراکنش</caption>
       <thead>
         <tr>
           <th>

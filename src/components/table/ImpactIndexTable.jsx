@@ -9,7 +9,7 @@ function ImpactIndexTable({ sortConfig, requestSort, items }) {
   };
   return (
     <table>
-      <caption>Products</caption>
+      <caption>تاثیر بر شاخص</caption>
       <thead>
         <tr>
           <th>
